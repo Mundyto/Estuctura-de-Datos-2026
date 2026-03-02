@@ -1,3 +1,4 @@
+"""Module for calculating statistical measures on housing data."""
 import pandas as pd
 df = pd.read_csv('./Housing.csv')
 columnas_a_procesar = ['price','bedrooms','bathrooms', 'sqft_living', 'sqft_lot', 'floors', 'sqft_above','sqft_basement','yr_built']
@@ -37,13 +38,13 @@ def sacar_varianza(lista, media):
     return varianza
 
 for nombre_col in columnas_a_procesar:
-    lista = df[nombre_col]
+    datos = df[nombre_col]
     
     print(f"\n--- ESTADÍSTICAS DE: {nombre_col} ---")
 
-    media_res = sacar_media(lista)
-    moda_res = sacar_moda(lista)
-    varianza_res = sacar_varianza(lista, media_res)
+    media_res = sacar_media(datos)
+    moda_res = sacar_moda(datos)
+    varianza_res = sacar_varianza(datos, media_res)
     desviacion_res = varianza_res**0.5
     print("La media es de:", media_res)
     print("La moda es de:", moda_res)
